@@ -1,36 +1,49 @@
-%p#notice= notice
+- model_class = FitmentCenter
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %b Company name:
+  %strong= model_class.human_attribute_name(:company_name) + ':'
+  %br
   = @fitment_center.company_name
 %p
-  %b Tel number:
+  %strong= model_class.human_attribute_name(:tel_number) + ':'
+  %br
   = @fitment_center.tel_number
 %p
-  %b Fax number:
+  %strong= model_class.human_attribute_name(:fax_number) + ':'
+  %br
   = @fitment_center.fax_number
 %p
-  %b Physical address:
+  %strong= model_class.human_attribute_name(:physical_address) + ':'
+  %br
   = @fitment_center.physical_address
 %p
-  %b Contact name:
+  %strong= model_class.human_attribute_name(:contact_name) + ':'
+  %br
   = @fitment_center.contact_name
 %p
-  %b Contact email address:
+  %strong= model_class.human_attribute_name(:contact_email_address) + ':'
+  %br
   = @fitment_center.contact_email_address
 %p
-  %b Contact cell number:
+  %strong= model_class.human_attribute_name(:contact_cell_number) + ':'
+  %br
   = @fitment_center.contact_cell_number
 %p
-  %b Postal address:
+  %strong= model_class.human_attribute_name(:postal_address) + ':'
+  %br
   = @fitment_center.postal_address
 %p
-  %b Registered by:
+  %strong= model_class.human_attribute_name(:registered_by) + ':'
+  %br
   = @fitment_center.registered_by
 %p
-  %b Verified:
+  %strong= model_class.human_attribute_name(:verified) + ':'
+  %br
   = @fitment_center.verified
 
-= link_to 'Edit', edit_fitment_center_path(@fitment_center)
-\|
-= link_to 'Back', fitment_centers_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), fitment_centers_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_fitment_center_path(@fitment_center), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), fitment_center_path(@fitment_center), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
