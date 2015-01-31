@@ -1,0 +1,37 @@
+%h1 Listing fitment_centers
+
+%table
+  %tr
+    %th Company name
+    %th Tel number
+    %th Fax number
+    %th Physical address
+    %th Contact name
+    %th Contact email address
+    %th Contact cell number
+    %th Postal address
+    %th Registered by
+    %th Verified
+    %th
+    %th
+    %th
+
+  - @fitment_centers.each do |fitment_center|
+    %tr
+      %td= fitment_center.company_name
+      %td= fitment_center.tel_number
+      %td= fitment_center.fax_number
+      %td= fitment_center.physical_address
+      %td= fitment_center.contact_name
+      %td= fitment_center.contact_email_address
+      %td= fitment_center.contact_cell_number
+      %td= fitment_center.postal_address
+      %td= fitment_center.registered_by
+      %td= fitment_center.verified
+      %td= link_to 'Show', fitment_center
+      %td= link_to 'Edit', edit_fitment_center_path(fitment_center)
+      %td= link_to 'Destroy', fitment_center, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Fitment center', new_fitment_center_path

@@ -1,0 +1,17 @@
+= simple_form_for(@fitment_center) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :company_name
+    = f.input :tel_number
+    = f.input :fax_number
+    = f.input :physical_address
+    = f.input :contact_name
+    = f.input :contact_email_address
+    = f.input :contact_cell_number
+    = f.input :postal_address
+    = f.input :registered_by
+    = f.input :verified
+
+  .form-actions
+    = f.button :submit

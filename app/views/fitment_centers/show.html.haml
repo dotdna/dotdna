@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Company name:
+  = @fitment_center.company_name
+%p
+  %b Tel number:
+  = @fitment_center.tel_number
+%p
+  %b Fax number:
+  = @fitment_center.fax_number
+%p
+  %b Physical address:
+  = @fitment_center.physical_address
+%p
+  %b Contact name:
+  = @fitment_center.contact_name
+%p
+  %b Contact email address:
+  = @fitment_center.contact_email_address
+%p
+  %b Contact cell number:
+  = @fitment_center.contact_cell_number
+%p
+  %b Postal address:
+  = @fitment_center.postal_address
+%p
+  %b Registered by:
+  = @fitment_center.registered_by
+%p
+  %b Verified:
+  = @fitment_center.verified
+
+= link_to 'Edit', edit_fitment_center_path(@fitment_center)
+\|
+= link_to 'Back', fitment_centers_path
