@@ -1,0 +1,12 @@
+= simple_form_for @customer_asset, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :customer_id
+  = f.input :make
+  = f.input :model
+  = f.input :vinnumber
+  = f.input :color
+  = f.input :microdot_number
+  = f.input :registration_number
+  = f.input :type
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), customer_assets_path, :class => 'btn'

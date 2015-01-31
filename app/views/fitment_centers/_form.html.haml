@@ -3,11 +3,14 @@
   = f.input :tel_number
   = f.input :fax_number
   = f.input :physical_address, :input_html => {:cols => 3, :rows => 3}
+  = f.input :region_name
+  = f.input :lat, :label => "Latitude"
+  = f.input :long, :label => "Longitude"
   = f.input :contact_name
   = f.input :contact_email_address
   = f.input :contact_cell_number
   = f.input :postal_address, :input_html => {:cols => 3, :rows => 3}
-  = f.input :registered_by
+  = f.input :registered_by, :as => :hidden
   = f.input :verified
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'

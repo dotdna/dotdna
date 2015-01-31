@@ -41,6 +41,7 @@ class FitmentCentersController < ApplicationController
   # POST /fitment_centers.json
   def create
     @fitment_center = FitmentCenter.new(params[:fitment_center])
+    @fitment_center.registered_by = current_admin_user
 
     respond_to do |format|
       if @fitment_center.save

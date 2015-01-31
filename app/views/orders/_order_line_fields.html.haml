@@ -1,0 +1,18 @@
+%fieldset
+  %table.table.table-stripped.table-condensed.table-bordered
+    %thead
+      %tr
+        %th
+          Product
+        %th
+          Qty
+        %th
+    %tbody
+      %tr
+        %td
+          =f.input :product_id, :as => :select, :collection => Product.all, :prompt => "Select Product", :label => false
+        %td
+          =f.input :qty, :label => false
+        %td
+          = f.hidden_field :_destroy
+          = link_to "Remove", '#', class: "remove_fields btn btn-mini btn-danger"

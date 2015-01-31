@@ -1,0 +1,38 @@
+%h4.text-info Fitment Center Orders
+%hr
+%table.table.table-bordered.table-condensed.table-stripped
+  %thead
+    %tr
+      %th
+        Fitment Centre
+      %th
+        Reference Number
+      %th
+        Order Amount
+      %th
+        Request Units
+      %th
+        Order #
+      %th
+  %tbody
+    -Order.all.each do |x|
+      -if x.dispatched? == false
+        %tr
+          %td
+            =x.fitment_center.company_name rescue nil
+          %td
+            =x.ref_number
+          %td
+            R
+            =x.total
+          %td
+            -x.order_lines.each do |y|
+              =y.product.name
+              =": "
+              =y.qty
+              %br
+          %td
+            =x.id
+          %td
+            =link_to "Dispatch Order", "/order_dispatch/#{x.id}", :class => 'btn btn-success'
+

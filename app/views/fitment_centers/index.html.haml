@@ -9,8 +9,6 @@
       %th= model_class.human_attribute_name(:contact_name)
       %th= model_class.human_attribute_name(:contact_email_address)
       %th= model_class.human_attribute_name(:contact_cell_number)
-      %th= model_class.human_attribute_name(:postal_address)
-      %th= model_class.human_attribute_name(:verified)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -21,7 +19,6 @@
         %td= fitment_center.contact_name
         %td= fitment_center.contact_email_address
         %td= fitment_center.contact_cell_number
-        %td= fitment_center.postal_address
         %td=l fitment_center.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_fitment_center_path(fitment_center), :class => 'btn btn-mini'
