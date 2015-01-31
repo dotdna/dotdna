@@ -1,5 +1,4 @@
 require "bundler/capistrano"
-require "whenever/capistrano"
 
 set :default_environment, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
