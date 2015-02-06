@@ -74,7 +74,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
     @order.dispatched = false
-
+    @order.fitment_center_id = current_fitment_center_user.fitment_center_id
 
 
     respond_to do |format|
