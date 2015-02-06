@@ -14,8 +14,8 @@
     - @fitment_center_stocks.each do |fitment_center_stock|
       %tr
         %td= link_to fitment_center_stock.id, fitment_center_stock_path(fitment_center_stock)
-        %td= fitment_center_stock.fitment_center_id
-        %td= fitment_center_stock.product_id
+        %td= fitment_center_stock.fitment_center.company_name
+        %td= fitment_center_stock.product.name
         %td= fitment_center_stock.qty
         %td=l fitment_center_stock.created_at
         %td

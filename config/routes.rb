@@ -5,6 +5,10 @@ Dotdna::Application.routes.draw do
 
   match "/confirm_order" => "orders#confirm_order"
 
+  match "/order_dispatch/:id" => "dashboard#order_dispatch"
+
+  match "/dashboard/fitment_center" => "dashboard#fitment_center"
+
   resources :orders
 
 

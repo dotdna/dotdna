@@ -16,7 +16,7 @@
       %th
   %tbody
     -Order.all.each do |x|
-      -if x.dispatched? == false
+      -if x.dispatched == false
         %tr
           %td
             =x.fitment_center.company_name rescue nil

@@ -15,7 +15,7 @@
     - @orders.each do |order|
       %tr
         %td= link_to order.id, order_path(order)
-        %td= order.fitment_center_id
+        %td= order.fitment_center.company_name
         %td= order.total
         %td= order.dispatched
         %td= order.ref_number

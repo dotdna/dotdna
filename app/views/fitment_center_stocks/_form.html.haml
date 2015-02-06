@@ -1,5 +1,5 @@
 = simple_form_for @fitment_center_stock, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :fitment_center_id, :as => :hidden
+  = f.input :fitment_center_id, :as => :select, :collection => FitmentCenter.all, :label_method => :company_name
   = f.input :product_id, :as => :select, :collection => Product.all
   = f.input :qty
   .form-actions

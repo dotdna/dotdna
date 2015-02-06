@@ -3,4 +3,8 @@ class FitmentCenterStock < ActiveRecord::Base
   belongs_to :fitment_center
   belongs_to :product
 
+  def product_name
+    return self.product.name
+  end
+
 end

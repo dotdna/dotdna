@@ -25,7 +25,7 @@ class CustomersController < ApplicationController
   # GET /customers/new.json
   def new
     @customer = Customer.new
-    @customer.build_customer_asset
+
 
     respond_to do |format|
       format.html # new.html.erb

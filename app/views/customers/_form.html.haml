@@ -4,11 +4,13 @@
   = f.input :middle_name
   = f.input :last_name
   = f.input :cell_number
-  = f.input :physical_address
+  = f.input :physical_address, :input_html => {:cols => 3, :rows => 3}
   = f.input :email
-  = f.input :idnumber
+  = f.input :idnumber, :label => "ID Number"
   %hr
-
+  = f.fields_for :customer_assets do |builder|
+    = render 'customer_asset_fields', f: builder
+  = link_to_add_fields "Add Asset", f, :customer_assets
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), customers_path, :class => 'btn'

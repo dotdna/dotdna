@@ -7,4 +7,5 @@ class FitmentCenter < ActiveRecord::Base
   has_many :fitment_center_users
   has_many :orders
   has_many :fitment_center_stocks
+  has_many :customers
 end

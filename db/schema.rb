@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150131150804) do
+ActiveRecord::Schema.define(:version => 20150201145740) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -40,8 +40,9 @@ ActiveRecord::Schema.define(:version => 20150131150804) do
     t.string   "microdot_number"
     t.string   "registration_number"
     t.integer  "type"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.integer  "fitment_center_stock_id"
   end
 
   add_index "customer_assets", ["customer_id"], :name => "index_customer_assets_on_customer_id"
@@ -55,8 +56,9 @@ ActiveRecord::Schema.define(:version => 20150131150804) do
     t.text     "physical_address"
     t.string   "email"
     t.string   "idnumber"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "fitment_centre_id"
   end
 
   create_table "fitment_center_stocks", :force => true do |t|
