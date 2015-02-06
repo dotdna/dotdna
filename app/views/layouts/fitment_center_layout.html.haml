@@ -27,6 +27,7 @@
               %ul.nav
                 %li= link_to "Orders", "/orders"
                 %li= link_to "Fitment Center Stock", "/fitment_center_stocks"
+                %li= link_to "Sign Out", destroy_fitment_center_user_session_path, :method => :delete
 
     .container-fluid
       .row-fluid
