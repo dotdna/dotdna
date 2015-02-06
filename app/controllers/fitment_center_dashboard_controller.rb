@@ -1,4 +1,4 @@
-class FitmentCenterDashboard < ApplicationController
+class FitmentCenterDashboardController < ApplicationController
 
   before_filter :authenticate_fitment_center_user!
 
