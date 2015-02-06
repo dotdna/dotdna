@@ -3,6 +3,9 @@ Dotdna::Application.routes.draw do
   resources :fitment_center_stocks
 
 
+  match "/fitmentcenter" => "fitment_center_dashboard#index"
+
+
   match "/confirm_order" => "orders#confirm_order"
 
   match "/order_dispatch/:id" => "dashboard#order_dispatch"
