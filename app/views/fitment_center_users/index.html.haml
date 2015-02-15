@@ -1,0 +1,18 @@
+%h3.text-info Fitment Center Users
+%br
+=link_to "Create new Fitment Center User", new_fitment_center_user_path, :class => 'btn btn-primary'
+%hr
+%table.table.table-stripped
+  %thead
+    %tr
+      %th Fitment Center
+      %th E-Mail
+      %th Actions
+  -@fitment_center_users.each do |user|
+    %tbody
+      %tr
+        %td=user.fitment_center.company_name rescue nil
+        %td=user.email
+        %td
+          =link_to 'Edit', edit_fitment_center_user_path(user.id), :class => 'btn btn-mini btn-primary'
+          =link_to 'Delete', user, :method => :delete, :data => {:confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger'

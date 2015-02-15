@@ -21,13 +21,18 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") DotDna Fitement Center Portal
+          %a.brand(href="#") DotDna Fitment Center Portal
           .container.nav-collapse
             -if fitment_center_user_signed_in?
               %ul.nav
                 %li= link_to "Orders", "/orders"
                 %li= link_to "Fitment Center Stock", "/fitment_center_stocks"
-                %li= link_to "Sign Out", destroy_fitment_center_user_session_path, :method => :delete
+                %li= link_to "My Customers", "/customers"
+                %li= link_to "Warranty Documents", "#"
+              .pull-right
+                %ul.nav
+                  %li= link_to "#{current_fitment_center_user.fitment_center.company_name}", "#"
+                  %li= link_to "Sign Out", destroy_fitment_center_user_session_path, :method => :delete
 
     .container-fluid
       .row-fluid

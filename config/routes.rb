@@ -3,7 +3,7 @@ Dotdna::Application.routes.draw do
   resources :fitment_center_stocks
 
 
-  match "/fitmentcenter" => "fitment_center_dashboard#index"
+
 
 
   match "/confirm_order" => "orders#confirm_order"
@@ -23,8 +23,11 @@ Dotdna::Application.routes.draw do
 
   resources :customers
 
+  resources :fitment_center_users
 
   devise_for :fitment_center_users
+
+  match "/fitmentcenter" => "fitment_center_dashboard#index"
 
   resources :fitment_centers
 

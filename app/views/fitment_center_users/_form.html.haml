@@ -1,0 +1,10 @@
+= simple_form_for(@fitment_center_user) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :email, :required => true
+    = f.input :password, :required => true
+    = f.input :password_confirmation, :required => true
+    = f.input :fitment_center_id, :as => :select, :collection => FitmentCenter.all, :prompt => "Select a Fitment Center", :label_method => :company_name
+  .form-actions
+    = f.button :submit, :class => 'btn btn-success'
+    = link_to 'Back', fitment_center_users_path, :class => 'btn'

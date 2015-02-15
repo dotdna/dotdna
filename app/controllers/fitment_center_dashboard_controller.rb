@@ -6,7 +6,6 @@ class FitmentCenterDashboardController < ApplicationController
 
   layout 'fitment_center_layout'
 
-
   def index
 
 

@@ -1,0 +1,17 @@
+-#- model_class = FitmentCenterUser
+-#.page-header
+-#  %h1=t '.title', :default => model_class.model_name.human.titleize
+-#
+-#%p
+-#  %strong= model_class.human_attribute_name(:fitment_center_id) + ':'
+-#  %br
+-#  = @fitment_center_user.fitment_center.company_name
+-#%p
+-#  %strong= model_class.human_attribute_name(:email) + ':'
+-#  %br
+-#  = @fitment_center_user.email
+-#
+-#.form-actions
+-#  = link_to t('.back', :default => t("helpers.links.back")), fitment_center_user_path, :class => 'btn'
+-#  = link_to t('.edit', :default => t("helpers.links.edit")), edit_fitment_center_user_path(@fitment_center_user), :class => 'btn'
+-#  = link_to t('.destroy', :default => t("helpers.links.destroy")), fitment_center_user_path(@fitment_center_user), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
