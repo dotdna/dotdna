@@ -3,7 +3,8 @@
   = f.input :tel_number
   = f.input :fax_number
   = f.input :physical_address, :input_html => {:cols => 3, :rows => 3}
-  = f.input :region_name, :as => :select, :collection => [["Hhohho", 1], ["Manzini", 2], ["Lubombo", 3], ["Shiselweni", 4]]
+  = f.input :country_name, :as => :select, :collection => [["Swaziland", 1], ["South Africa", 2]]
+  = f.input :region_name, :as => :select, :collection => [["Hhohho", 1], ["Manzini", 2], ["Lubombo", 3], ["Shiselweni", 4], ["Eastern Cape", 5], ["Free State", 6], ["Gauteng", 7], ["KwaZulu-Natal", 8], ["Limpopo", 9], ["Mpumalanga", 10], ["North West", 11], ["Northern Cape", 12], ["Western Cape", 13]]
   = f.input :lat, :label => "Latitude"
   = f.input :long, :label => "Longitude"
   = f.input :contact_name

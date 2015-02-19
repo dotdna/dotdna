@@ -1,5 +1,8 @@
 Dotdna::Application.routes.draw do
 
+  resources :insurance_brokers
+
+
   resources :fitment_center_stocks
 
   match "/confirm_order" => "orders#confirm_order"

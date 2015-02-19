@@ -1,0 +1,12 @@
+= simple_form_for @insurance_broker, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = f.input :physical_address
+  = f.input :tel_number
+  = f.input :fax_number
+  = f.input :contact_name
+  = f.input :contact_email
+  = f.input :contact_mobile
+  = f.input :country_name, :as => :select, :collection => [["Swaziland", 1],["South Africa", 2]]
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), insurance_brokers_path, :class => 'btn'

@@ -7,6 +7,7 @@
   = f.input :physical_address, :input_html => {:cols => 3, :rows => 3}
   = f.input :email
   = f.input :idnumber, :label => "ID Number"
+  = f.input :insurance_broker_id, :as => :select, :collection => InsuranceBroker.all, :prompt => "Select Insurance Broker"
   %hr
   = f.fields_for :customer_assets do |builder|
     = render 'customer_asset_fields', f: builder

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150201145740) do
+ActiveRecord::Schema.define(:version => 20150219055948) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -56,9 +56,10 @@ ActiveRecord::Schema.define(:version => 20150201145740) do
     t.text     "physical_address"
     t.string   "email"
     t.string   "idnumber"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "fitment_centre_id"
+    t.integer  "insurance_broker_id"
   end
 
   create_table "fitment_center_stocks", :force => true do |t|
@@ -105,6 +106,20 @@ ActiveRecord::Schema.define(:version => 20150201145740) do
     t.string   "region_name"
     t.string   "lat"
     t.string   "long"
+    t.string   "country_name"
+  end
+
+  create_table "insurance_brokers", :force => true do |t|
+    t.string   "name"
+    t.text     "physical_address"
+    t.string   "tel_number"
+    t.string   "fax_number"
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.string   "contact_mobile"
+    t.string   "country_name"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "order_lines", :force => true do |t|

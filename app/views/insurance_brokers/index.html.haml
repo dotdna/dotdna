@@ -1,0 +1,35 @@
+- model_class = InsuranceBroker
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:physical_address)
+      %th= model_class.human_attribute_name(:tel_number)
+      %th= model_class.human_attribute_name(:fax_number)
+      %th= model_class.human_attribute_name(:contact_name)
+      %th= model_class.human_attribute_name(:contact_email)
+      %th= model_class.human_attribute_name(:contact_mobile)
+      %th= model_class.human_attribute_name(:country_name)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @insurance_brokers.each do |insurance_broker|
+      %tr
+        %td= link_to insurance_broker.id, insurance_broker_path(insurance_broker)
+        %td= insurance_broker.name
+        %td= insurance_broker.physical_address
+        %td= insurance_broker.tel_number
+        %td= insurance_broker.fax_number
+        %td= insurance_broker.contact_name
+        %td= insurance_broker.contact_email
+        %td= insurance_broker.contact_mobile
+        %td= insurance_broker.country_name
+        %td=l insurance_broker.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_insurance_broker_path(insurance_broker), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), insurance_broker_path(insurance_broker), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_insurance_broker_path, :class => 'btn btn-primary'
