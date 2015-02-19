@@ -1,5 +1,11 @@
 Dotdna::Application.routes.draw do
 
+  match "/fitmentcenter_stock" => "dashboard#fitmentcenter_stock"
+
+  match "/fitmentcenter" => "fitment_center_dashboard#index"
+
+  match "/guarantee_documents" => "fitment_center_dashboard#guarantee_documents"
+
   resources :insurance_brokers
 
 
@@ -22,16 +28,15 @@ Dotdna::Application.routes.draw do
 
   resources :customers
 
+
   devise_for :fitment_center_users
+
 
   resources :fitment_center_users
 
-  match "/fitmentcenter" => "fitment_center_dashboard#index"
+  devise_for :admin_users
 
   resources :fitment_centers
-
-
-  devise_for :admin_users
 
   root :to => 'dashboard#admin'
 

@@ -21,7 +21,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") DotDna Portal
+          %a.brand(href="#{root_url}") DotDna Portal
           .container.nav-collapse
             -if admin_user_signed_in?
               %ul.nav
@@ -29,7 +29,7 @@
                 %li= link_to "Customers", "/customers"
                 %li= link_to "Products", "/products"
                 %li= link_to "Orders", "/orders"
-                %li= link_to "Fitment Center Stock", "/fitment_center_stocks"
+                %li= link_to "Fitment Center Stock", "#"
                 %li= link_to "Fitment Center Users", "/fitment_center_users"
                 %li= link_to "Insurnace Brokers", "/insurance_brokers"
                 %li= link_to "Sign Out", destroy_admin_user_session_path, :method => :delete
@@ -41,4 +41,6 @@
           = yield
     
       %footer
-        %p &copy; DotDna.
+        %p
+          &copy;
+          %a{:href => "http://www.dotdna.co.za"} DotDna.

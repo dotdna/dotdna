@@ -12,5 +12,17 @@ class FitmentCenterDashboardController < ApplicationController
 
   end
 
+  def guarantee_documents
+
+
+    respond_to do |format|
+      format.html
+    end
+
+
+  end
+
+
+
 
 end

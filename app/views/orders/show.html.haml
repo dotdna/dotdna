@@ -2,10 +2,16 @@
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
--if @order.ref_number != ""
-  .well
-    %h3.text-success
-      Confirmed Order! Waiting Dispatch
+.well
+  -if @order.ref_number == "" && @order.dispatched? == false
+    %h4.text-info
+      Please confirm order by entering a bank deposit reference number
+  -elsif @order.ref_number != "" && @order.dispatched? == false
+    %h4.text-info
+      Confirmed Order. Waiting for dispatch
+  -elsif @order.ref_number != "" && @order.dispatched? == true
+    %h4.text-success
+      Order is complete and stock has been loaded to your account.
 
 -@order.order_lines.each do |x|
   -if x.line_total == nil
@@ -60,10 +66,10 @@
           =x.qty
         %td
           R
-          =x.line_total
+          =number_with_precision(x.line_total, :precision => 2, :delimiter => ',')
 .well
   %h4.text-info
-    ="Toral R #{@order.total}"
+    ="Total R #{number_with_precision(@order.total, :precision => 2, :delimiter => ',')}"
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), orders_path, :class => 'btn'

@@ -21,14 +21,15 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") DotDna Fitment Center Portal
+          %a.brand(href="/fitmentcenter") DotDna Fitment Center Portal
           .container.nav-collapse
             -if fitment_center_user_signed_in?
               %ul.nav
                 %li= link_to "Orders", "/orders"
                 %li= link_to "Fitment Center Stock", "/fitment_center_stocks"
                 %li= link_to "My Customers", "/customers"
-                %li= link_to "Gurantee Documents", "#"
+                %li= link_to "Gurantee Documents", "/guarantee_documents"
+                %li=link_to "New Installation", new_customer_path
               .pull-right
                 %ul.nav
                   %li= link_to "#{current_fitment_center_user.fitment_center.company_name}", "#"
@@ -41,4 +42,6 @@
           = yield
 
       %footer
-        %p &copy; DotDna.
+        %p
+          &copy;
+          %a{:href => "http://www.dotdna.co.za"} DotDna.

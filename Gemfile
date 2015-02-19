@@ -24,11 +24,7 @@ gem 'safe_attributes'
 gem 'useragent'
 gem 'prawn', '0.15.0'
 gem "font-awesome-rails"
-gem 'tinymce-rails'
-gem "fuelux-rails"
 gem "bootstrap-switch-rails"
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
 gem 'nexmo'
 
 # Gems used only for assets and not required

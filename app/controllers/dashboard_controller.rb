@@ -8,6 +8,10 @@ class DashboardController < ApplicationController
 
   end
 
+  def fitmentcenter_stock
+
+  end
+
   def order_dispatch
 
     @order = Order.find(params[:id])
@@ -21,13 +25,13 @@ class DashboardController < ApplicationController
       @product_id = x.product_id
       @qty = x.qty
 
-      @fitment_centre.fitment_center_stocks.each do |y|
+      @fitment_centre_stock = FitmentCenterStock.find_by_fitment_center_id_and_product_id(@order.fitment_center_id, x.product_id) rescue nil
 
-        if y.product_id == @product_id
+      if @fitment_centre_stock != nil
 
-          y.qty += @qty
-          y.save!
-
+        if @order.dispatched == false
+          @fitment_centre_stock.qty += @qty
+          @fitment_centre_stock.save!
         end
 
       end

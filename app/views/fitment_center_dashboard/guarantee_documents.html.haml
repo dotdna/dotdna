@@ -1,4 +1,4 @@
-%h4.text-info New Installations Today
+%h4.text-info Guarantee Documents
 %hr
 %table.table.table-condensed.table-bordered.table-stripped
   %thead
@@ -10,7 +10,7 @@
       %th
         Guarantee Certificate
   %tbody
-    -Customer.where("created_at between '#{Time.now.strftime('%Y-%m-%d')} 00:00:00' and '#{Time.now.strftime('%Y-%m-%d')} 23:59:59' and fitment_centre_id = #{current_fitment_center_user.fitment_center_id}").each do |x|
+    -Customer.where("fitment_centre_id = #{current_fitment_center_user.fitment_center_id}").each do |x|
       %tr
         %td
           =x.title.to_s + " " + x.first_name.to_s + " " + x.last_name.to_s
@@ -18,4 +18,3 @@
           =x.created_at.strftime("%d-%m-%Y %H:%M")
         %td
           =link_to "View", "/customers/#{x.id}", :class => 'btn btn-small btn-success'
-

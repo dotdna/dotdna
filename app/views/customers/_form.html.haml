@@ -1,17 +1,23 @@
 = simple_form_for @customer, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :title
-  = f.input :first_name
-  = f.input :middle_name
-  = f.input :last_name
-  = f.input :cell_number
-  = f.input :physical_address, :input_html => {:cols => 3, :rows => 3}
-  = f.input :email
-  = f.input :idnumber, :label => "ID Number"
-  = f.input :insurance_broker_id, :as => :select, :collection => InsuranceBroker.all, :prompt => "Select Insurance Broker"
+  .row
+    .span5
+      = f.input :title
+      = f.input :first_name
+      = f.input :middle_name
+      = f.input :last_name
+      = f.input :cell_number
+    .span4
+      = f.input :physical_address, :input_html => {:cols => 3, :rows => 3}
+      = f.input :email
+      = f.input :idnumber, :label => "ID Number"
+      = f.input :insurance_broker_id, :as => :select, :collection => InsuranceBroker.all, :prompt => "Select Insurance Broker"
   %hr
-  = f.fields_for :customer_assets do |builder|
-    = render 'customer_asset_fields', f: builder
-  = link_to_add_fields "Add Asset", f, :customer_assets
+  .well
+    %h4.text-info Customer Asset
+    %hr
+    = f.fields_for :customer_assets do |builder|
+      = render 'customer_asset_fields', f: builder
+    = link_to_add_fields "Add Asset", f, :customer_assets
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), customers_path, :class => 'btn'

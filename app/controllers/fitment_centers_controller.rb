@@ -45,6 +45,23 @@ class FitmentCentersController < ApplicationController
 
     respond_to do |format|
       if @fitment_center.save
+
+        if @fitment_center.fitment_center_stocks.exists? == false
+
+          Product.all.each do |x|
+
+            new_stock_init = FitmentCenterStock.new
+            new_stock_init.fitment_center_id = @fitment_center.id
+            new_stock_init.product_id = x.id
+            new_stock_init.qty = 0
+            new_stock_init.save!
+
+          end
+
+        end
+
+
+
         format.html { redirect_to @fitment_center, notice: 'Fitment center was successfully created.' }
         format.json { render json: @fitment_center, status: :created, location: @fitment_center }
       else

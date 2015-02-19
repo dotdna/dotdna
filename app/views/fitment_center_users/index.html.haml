@@ -15,4 +15,4 @@
         %td=user.email
         %td
           =link_to 'Edit', edit_fitment_center_user_path(user.id), :class => 'btn btn-mini btn-primary'
-          =link_to 'Delete', user, :method => :delete, :data => {:confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger'
+          =link_to 'Delete', fitment_center_user_path(user), :method => :delete, :data => {:confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger'

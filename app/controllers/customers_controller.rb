@@ -4,6 +4,7 @@ class CustomersController < ApplicationController
   # GET /customers.json
 
   skip_before_filter :authenticate_admin_user!
+
   before_filter :authenticate_fitment_center_user!
 
   layout 'fitment_center_layout'
@@ -55,6 +56,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(params[:customer])
     @customer.fitment_centre_id = current_fitment_center_user.fitment_center_id
+    @customer.guarantee_number = Time.now.to_i
 
     respond_to do |format|
       if @customer.save
@@ -62,8 +64,18 @@ class CustomersController < ApplicationController
         nexmo = Nexmo::Client.new('8cfe5832', 'f004980a')
         nexmo.send_message!({:to => "#{@customer.cell_number}", :from => 'DotDna', :text => "Welcome to DotDna, Your fitment is now complete. Please note your customer number #{@customer.id}. For additional information please visit http://www.dotdna.co.za"})
 
+        @installed_stock = FitmentCenterStock.find(@customer.customer_assets.first.fitment_center_stock_id) rescue nil
+
+        if @installed_stock != nil
+
+          @installed_stock.qty -= 1
+          @installed_stock.save!
+
+        end
+
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render json: @customer, status: :created, location: @customer }
+
       else
         format.html { render action: "new" }
         format.json { render json: @customer.errors, status: :unprocessable_entity }

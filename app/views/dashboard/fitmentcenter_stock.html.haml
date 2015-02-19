@@ -1,0 +1,17 @@
+%h3.text-info Fitment Center Stock
+%hr
+%table.table.table-condensed.table-bordered.table-stripped
+  %thead
+    %tr
+      %th Fitment Center
+      %th Product
+      %th Qty
+  %tbody
+    -FitmentCenterStock.all.each do |x|
+      %tr
+        %td
+          =x.fitment_center.company_name
+        %td
+          =x.product.name
+        %td
+          =x.qty

@@ -1,31 +1,19 @@
 %fieldset
-  %table.table.table-stripped.table-condensed.table-bordered
+  .span5
+    =f.input :color
+    =f.input :make
+    =f.input :microdot_number
+    =f.input :model
+    =f.input :registration_number
+  .span4
+    =f.input :vehicle_type, :as => :select, :collection => [["Passenger", 1], ["SUV", 2], ["Commercial", 3], ["Heavy Duty", 4], ["Motor Cycle", 5], ["Trailer", 6], ["Yellow Metal", 7]]
+    =f.input :vinnumber, :label => "VIN Number"
+    =f.input :fitment_center_stock_id, :as => :select, :collection => FitmentCenterStock.find_all_by_fitment_center_id(current_fitment_center_user.fitment_center_id), :label_method => :product_name, :label => "DotDna Product"
+
+  %table.table
     %tbody
-      %tr
-        %td
-          =f.input :color
-      %tr
-        %td
-          =f.input :make
-      %tr
-        %td
-          =f.input :microdot_number
-      %tr
-        %td
-          =f.input :model
-      %tr
-        %td
-          =f.input :registration_number
-      %tr
-        %td
-          =f.input :vehicle_type, :as => :select, :collection => [["Passenger", 1], ["SUV", 2], ["Commercial", 3], ["Heavy Duty", 4], ["Motor Cycle", 5], ["Trailer", 6], ["Yellow Metal", 7]]
-      %tr
-        %td
-          =f.input :vinnumber, :label => "VIN Number"
-      %tr
-        %td
-          =f.input :fitment_center_stock_id, :as => :select, :collection => FitmentCenterStock.all, :label_method => :product_name, :label => "DotDna Product"
       %tr
         %td
           = f.hidden_field :_destroy
           = link_to "Remove", '#', class: "remove_fields btn btn-mini btn-danger"
+%hr

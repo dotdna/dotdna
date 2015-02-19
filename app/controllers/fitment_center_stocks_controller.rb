@@ -9,7 +9,18 @@ class FitmentCenterStocksController < ApplicationController
   layout 'fitment_center_layout'
 
   def index
-    @fitment_center_stocks = FitmentCenterStock.all
+
+    if fitment_center_user_signed_in?
+
+      @fitment_center_stocks = FitmentCenterStock.find_all_by_fitment_center_id(current_fitment_center_user.fitment_center_id)
+
+    else
+
+      @fitment_center_stocks = FitmentCenterStock.all
+
+    end
+
+
 
     respond_to do |format|
       format.html # index.html.erb
