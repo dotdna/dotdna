@@ -1,8 +1,17 @@
 class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
+
+  skip_before_filter :authenticate_admin_user!
+  before_filter :authenticate_fitment_center_user!
+
   def index
-    @customers = Customer.all
+
+    if fitment_center_user_signed_in?
+      @customers = Customer.find_all_by_fitment_centre_id(current_fitment_center_user.fitment_center_id)
+    else
+      @customers = Customer.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,6 +51,7 @@ class CustomersController < ApplicationController
   # POST /customers.json
   def create
     @customer = Customer.new(params[:customer])
+    @customer.fitment_centre_id = current_fitment_center_user.fitment_center_id
 
     respond_to do |format|
       if @customer.save

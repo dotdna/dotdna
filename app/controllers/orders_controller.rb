@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
   # GET /orders.json
 
   before_filter :authenticate_fitment_center_user!
-  before_filter :check_fitmentcenter_login
 
   skip_before_filter :authenticate_admin_user!
 
@@ -11,7 +10,11 @@ class OrdersController < ApplicationController
 
   def index
 
-    @orders = Order.all
+    if fitment_center_user_signed_in?
+      @orders = Order.find_all_by_fitment_center_id(current_fitment_center_user.fitment_center_id)
+    else
+      @orders = Order.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -125,16 +128,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  private
 
-  def check_fitmentcenter_login
-
-    if session[:fitmentcenter].nil? == false
-
-      @orders = Order.find_all_by_fitment_center_id(current_fitment_center_user.fitment_center_id)
-
-    end
-
-  end
 
 end
