@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150219055948) do
+ActiveRecord::Schema.define(:version => 20150219065700) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20150219055948) do
     t.string   "color"
     t.string   "microdot_number"
     t.string   "registration_number"
-    t.integer  "type"
+    t.integer  "vehicle_type"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.integer  "fitment_center_stock_id"
