@@ -22,9 +22,9 @@ Dotdna::Application.routes.draw do
 
   resources :customers
 
-  resources :fitment_center_users
-
   devise_for :fitment_center_users
+
+  resources :fitment_center_users
 
   match "/fitmentcenter" => "fitment_center_dashboard#index"
 
