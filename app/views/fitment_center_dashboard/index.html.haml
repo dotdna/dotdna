@@ -1,21 +1,41 @@
-%h4.text-info New Installations Today
-%hr
-%table.table.table-condensed.table-bordered.table-stripped
-  %thead
-    %tr
-      %th
-        Customer Name
-      %th
-        Fitment Time
-      %th
-        Guarantee Certificate
-  %tbody
-    -Customer.where("created_at between '#{Time.now.strftime('%Y-%m-%d')} 00:00:00' and '#{Time.now.strftime('%Y-%m-%d')} 23:59:59' and fitment_centre_id = #{current_fitment_center_user.fitment_center_id}").each do |x|
+-@new_installations = Customer.where("created_at between '#{Time.now.strftime('%Y-%m-%d')} 00:00:00' and '#{Time.now.strftime('%Y-%m-%d')} 23:59:59' and fitment_centre_id = #{current_fitment_center_user.fitment_center_id}")
+.row-fluid
+  %h4.text-info
+    Stock Items
+  %hr
+  %table.table.table-condensed.table-stripped.table-bordered
+    %thead
       %tr
-        %td
-          =x.title.to_s + " " + x.first_name.to_s + " " + x.last_name.to_s
-        %td
-          =x.created_at.strftime("%d-%m-%Y %H:%M")
-        %td
-          =link_to "View", "/customers/#{x.id}", :class => 'btn btn-small btn-success'
+        %th
+          Product
+        %th
+          Stock Qty
+    %tbody
+      -FitmentCenterStock.find_all_by_fitment_center_id(current_fitment_center_user.fitment_center_id).each do |x|
+        %tr
+          %td
+            =x.product.name
+          %td
+            =x.qty
 
+.row-fluid
+  %h4.text-info New Installations Today (#{@new_installations.count})
+  %hr
+  %table.table.table-condensed.table-bordered.table-stripped
+    %thead
+      %tr
+        %th
+          Customer Name
+        %th
+          Fitment Time
+        %th
+          Guarantee Certificate
+    %tbody
+      -@new_installations.each do |x|
+        %tr
+          %td
+            =x.title.to_s + " " + x.first_name.to_s + " " + x.last_name.to_s
+          %td
+            =x.created_at.strftime("%d-%m-%Y %H:%M")
+          %td
+            =link_to "View", "/customers/#{x.id}", :class => 'btn btn-small btn-success'
