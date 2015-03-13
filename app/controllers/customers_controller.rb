@@ -7,6 +7,8 @@ class CustomersController < ApplicationController
 
   before_filter :authenticate_fitment_center_user!
 
+  before_filter :check_stock_levels
+
   layout 'fitment_center_layout'
 
   def index
@@ -39,6 +41,19 @@ class CustomersController < ApplicationController
   def new
     @customer = Customer.new
 
+    # "TODO: Finish code for checking fitment center user details before adding any additional work"
+    #
+    # if fitment_center_user_signed_in?
+    #   @fitment_center_stock = FitmentCenterStock.find_all_by_fitment_center_id(current_fitment_center_user.fitment_center_id) rescue nil
+    # end
+    #
+    # if @fitment_center_stock.nil? == false
+    #
+    #   @stock_levels = 0
+    #
+    #
+    #
+    # end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -110,4 +125,33 @@ class CustomersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  private
+  def check_stock_levels
+
+     if fitment_center_user_signed_in?
+
+       @fitment_center_stock = FitmentCenterStock.find_all_by_fitment_center_id(current_fitment_center_user.fitment_center_id) rescue nil
+
+       if @fitment_center_stock.count > 0
+
+         @fitment_center_stock.each do |x|
+
+           if x.qty == 0
+
+             @no_stock_warning_label = x.product_name.to_s
+
+           end
+
+         end
+
+       end
+
+       end
+
+
+
+     end
+
 end

@@ -1,0 +1,19 @@
+%h4.text-info Daily New Installations by Fitment Center
+%hr
+%table.table.table-condensed.table-bordered.table-stripped
+  %thead
+    %tr
+      %th
+        Fitment Center
+      %th
+        New Fitments
+      %th
+  %tbody
+    -Customer.where("created_at between '#{Time.now.strftime("%Y-%m-%d")} 00:00:00' and '#{Time.now.strftime("%Y-%m-%d")} 23:59:59'").group(:fitment_centre_id).count.each do |x|
+      %tr
+        %td
+          =FitmentCenter.find(x[0]).company_name
+        %td
+          =x[1]
+        %td
+          =link_to "View Detailed Report", '#', :class => 'btn'

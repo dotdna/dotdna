@@ -12,6 +12,13 @@ class DashboardController < ApplicationController
 
   end
 
+  def insurer_dashboard
+
+
+
+
+  end
+
   def order_dispatch
 
     @order = Order.find(params[:id])

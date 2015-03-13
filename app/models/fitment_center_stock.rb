@@ -7,7 +7,9 @@ class FitmentCenterStock < ActiveRecord::Base
                                  message: "Cannot create muliple stock for Fitment Center" }
 
   def product_name
-    return self.product.name
+    if self.qty > 0
+      return self.product.name
+    end
   end
 
 end

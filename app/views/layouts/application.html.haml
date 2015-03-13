@@ -24,14 +24,16 @@
           %a.brand(href="#{root_url}") DotDna Portal
           .container.nav-collapse
             -if admin_user_signed_in?
+              -if current_admin_user.email != "joe@dotdna.co.za"
+                %ul.nav
+                  %li= link_to "Fitment Centers", "/fitment_centers"
+                  %li= link_to "Customers", "/customers"
+                  %li= link_to "Products", "/products"
+                  %li= link_to "Orders", "/orders"
+                  %li= link_to "Fitment Center Stock", "/fitmentcenter_stock"
+                  %li= link_to "Fitment Center Users", "/fitment_center_users"
+                  %li= link_to "Insurnace Brokers", "/insurance_brokers"
               %ul.nav
-                %li= link_to "Fitment Centers", "/fitment_centers"
-                %li= link_to "Customers", "/customers"
-                %li= link_to "Products", "/products"
-                %li= link_to "Orders", "/orders"
-                %li= link_to "Fitment Center Stock", "#"
-                %li= link_to "Fitment Center Users", "/fitment_center_users"
-                %li= link_to "Insurnace Brokers", "/insurance_brokers"
                 %li= link_to "Sign Out", destroy_admin_user_session_path, :method => :delete
 
     .container-fluid

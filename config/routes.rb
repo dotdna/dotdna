@@ -9,6 +9,8 @@ Dotdna::Application.routes.draw do
   resources :insurance_brokers
 
 
+  match "/insurer_dashboard" => "dashboard#insurer_dashboard"
+
   resources :fitment_center_stocks
 
   match "/confirm_order" => "orders#confirm_order"

@@ -1,4 +1,12 @@
 = simple_form_for @customer, :html => { :class => 'form-horizontal' } do |f|
+  -if @no_stock_warning_label.empty? == false
+    .well
+      %h4
+        The following kits are not available for installation
+      %br
+      %b.alert-text
+        =@no_stock_warning_label
+
   .row
     .span5
       = f.input :title
