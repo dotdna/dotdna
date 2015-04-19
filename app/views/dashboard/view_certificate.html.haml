@@ -1,0 +1,61 @@
+%div{:style => "padding: 20px; text-align:center; border: 10px solid #111038; height: 600px;"}
+  %div{:style => "padding: 20px; text-align:center; border: 5px solid #111038; height: 550px;"}
+    %img{:src => "#{asset_path("logo.png")}", :style => "width: 200px;"}
+    %h2{:style => "color: #111038"} Customer Guarantee Certificate
+    %table.table.table-condensed.table-stripped.table-bordered
+      %tr
+        %td
+          %b
+            Customer Name
+        %td
+          =@customer.first_name.to_s + " " + @customer.last_name.to_s
+      %tr
+        %td
+          %b
+            ID Number
+        %td
+          =@customer.idnumber
+      %tr
+        %td
+          %b
+            Guarantee Number
+        %td
+          =@customer.guarantee_number
+    %hr
+    %h4{:style => "color: #111038"} Covered Asset
+    %table.table.table-condensed.table-stripped.table-bordered
+      %tr
+        %td
+          %b
+            Make
+        %td
+          =@customer.customer_assets.first.make
+      %tr
+        %td
+          %b
+            VIN Number
+        %td
+          =@customer.customer_assets.first.vinnumber
+      %tr
+        %td
+          %b
+            Microdot Number
+        %td
+          =@customer.customer_assets.first.microdot_number
+      %tr
+        %td
+          %b Registration
+        %td
+          =@customer.customer_assets.first.registration_number
+      %tr
+        %td
+          %b Fitment Date
+        %td
+          =@customer.customer_assets.first.created_at.strftime("%d-%m-%Y")
+    %hr
+    %b
+      Terms and Conditions
+    %br
+    %div{:style => "font-size: 9px;"}
+      -#Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris erat ex, volutpat nec aliquet eu, consectetur vitae ipsum. Ut eu consectetur justo, eu ultrices elit. Praesent tincidunt in felis in sagittis. Etiam scelerisque justo vel enim iaculis tincidunt. Etiam sit amet lectus consectetur, euismod quam in, porta erat. Duis sollicitudin metus nec mauris faucibus, et suscipit velit ultricies. Aliquam feugiat tincidunt nisi eu semper. Sed et nisl volutpat, venenatis nisi a, iaculis mauris. Maecenas libero nisi, interdum at molestie et, suscipit sit amet enim. Nunc ullamcorper lacinia consequat.
+      -#Fusce facilisis odio nec libero malesuada, vel placerat odio interdum.

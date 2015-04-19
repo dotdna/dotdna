@@ -6,6 +6,17 @@ class DashboardController < ApplicationController
 
   def admin
 
+    if admin_user_signed_in?
+
+      if current_admin_user.email == "joe@dotdna.co.za"
+
+        redirect_to "/insurer_dashboard"
+
+      end
+
+
+    end
+
   end
 
   def fitmentcenter_stock
@@ -13,9 +24,6 @@ class DashboardController < ApplicationController
   end
 
   def insurer_dashboard
-
-
-
 
   end
 

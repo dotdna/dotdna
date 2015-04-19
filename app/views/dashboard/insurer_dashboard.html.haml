@@ -1,19 +1,60 @@
-%h4.text-info Daily New Installations by Fitment Center
+-@new_installations = Customer.where("created_at between '#{Time.now.strftime('%Y-%m-%d')} 00:00:00' and '#{Time.now.strftime('%Y-%m-%d')} 23:59:59'")
+-@all_installations = Customer.all()
+
+%h4.text-info New Installations Today (#{@new_installations.count})
 %hr
 %table.table.table-condensed.table-bordered.table-stripped
   %thead
     %tr
       %th
+        Customer Name
+      %th
+        ID Number
+      %th
         Fitment Center
       %th
-        New Fitments
+        Fitment Time
       %th
+        Document
   %tbody
-    -Customer.where("created_at between '#{Time.now.strftime("%Y-%m-%d")} 00:00:00' and '#{Time.now.strftime("%Y-%m-%d")} 23:59:59'").group(:fitment_centre_id).count.each do |x|
+    -@new_installations.each do |x|
       %tr
         %td
-          =FitmentCenter.find(x[0]).company_name
+          =x.title.to_s + " " + x.first_name.to_s + " " + x.last_name.to_s
         %td
-          =x[1]
+          =x.idnumber
         %td
-          =link_to "View Detailed Report", '#', :class => 'btn'
+          =x.fitment_center.company_name rescue nil
+        %td
+          =x.created_at.strftime("%d-%m-%Y %H:%M")
+        %td
+          =link_to "View", "/customers/#{x.id}", :class => 'btn btn-small btn-success'
+
+%h4.text-info All Installations (#{@all_installations.count})
+%hr
+%table.table.table-condensed.table-bordered.table-stripped
+  %thead
+    %tr
+      %th
+        Customer Name
+      %th
+        ID Number
+      %th
+        Fitment Center
+      %th
+        Fitment Time
+      %th
+        Guarantee Certificate
+  %tbody
+    -@all_installations.each do |x|
+      %tr
+        %td
+          =x.title.to_s + " " + x.first_name.to_s + " " + x.last_name.to_s
+        %td
+          =x.idnumber
+        %td
+          =x.fitment_center.company_name rescue nil
+        %td
+          =x.created_at.strftime("%d-%m-%Y %H:%M")
+        %td
+          =link_to "View", "/customers/#{x.id}", :class => 'btn btn-small btn-success'
