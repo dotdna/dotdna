@@ -13,7 +13,7 @@ load "config/recipes/nodejs"
 #load "config/recipes/rbenv"
 load "config/recipes/check"
 
-server "portal.dotdna.co.za", :web, :app, :db, primary: true
+server "178.62.93.199", :web, :app, :db, primary: true
 
 set :user, "deployer"
 set :application, "dotdna"
@@ -25,7 +25,7 @@ set :shared_children, shared_children + %w{public/uploads}
 set :whenever_command, "bundle exec whenever"
 
 set :scm, "git"
-set :repository, "git@github.com:DigitalTsotsi/#{application}.git"
+set :repository, "git@github.com:dotdna/#{application}.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
