@@ -4,7 +4,7 @@ upstream unicorn {
 
 server {
   listen 80 default deferred;
-  server_name www.dotdna.co.za;
+  server_name portal.dotdna.co.za;
   root <%= current_path %>/public;
 
   location ^~ /assets/ {
