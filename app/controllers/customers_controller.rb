@@ -76,8 +76,8 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.save
 
-        nexmo = Nexmo::Client.new('8cfe5832', 'f004980a')
-        nexmo.send_message!({:to => "#{@customer.cell_number}", :from => 'DotDna', :text => "Welcome to DotDna, Your fitment is now complete. Please note your customer number #{@customer.id}. For additional information please visit http://www.dotdna.co.za"})
+        nexmo = Nexmo::Client.new(key: '8cfe5832', secret: 'f004980a')
+        nexmo.send_message(to: "#{@customer.cell_number}", from: 'DotDna', text: "Welcome to DotDna, Your fitment is now complete. Please note your customer number #{@customer.id}. For additional information please visit http://www.dotdna.co.za/dotdna.apk")
 
         @installed_stock = FitmentCenterStock.find(@customer.customer_assets.first.fitment_center_stock_id) rescue nil
 
