@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Cell number:
+  = @customer_verification.cell_number
+%p
+  %b Verification date:
+  = @customer_verification.verification_date
+%p
+  %b Verification code:
+  = @customer_verification.verification_code
+%p
+  %b Verified:
+  = @customer_verification.verified
+
+= link_to 'Edit', edit_customer_verification_path(@customer_verification)
+\|
+= link_to 'Back', customer_verifications_path

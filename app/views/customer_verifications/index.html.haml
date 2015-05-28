@@ -1,0 +1,25 @@
+%h1 Listing customer_verifications
+
+%table
+  %tr
+    %th Cell number
+    %th Verification date
+    %th Verification code
+    %th Verified
+    %th
+    %th
+    %th
+
+  - @customer_verifications.each do |customer_verification|
+    %tr
+      %td= customer_verification.cell_number
+      %td= customer_verification.verification_date
+      %td= customer_verification.verification_code
+      %td= customer_verification.verified
+      %td= link_to 'Show', customer_verification
+      %td= link_to 'Edit', edit_customer_verification_path(customer_verification)
+      %td= link_to 'Destroy', customer_verification, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Customer verification', new_customer_verification_path

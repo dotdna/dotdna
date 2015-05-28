@@ -1,0 +1,11 @@
+= simple_form_for(@customer_verification) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :cell_number
+    = f.input :verification_date
+    = f.input :verification_code
+    = f.input :verified
+
+  .form-actions
+    = f.button :submit

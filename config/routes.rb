@@ -1,5 +1,8 @@
 Dotdna::Application.routes.draw do
 
+  resources :customer_verifications
+
+
   match "/fitmentcenter_stock" => "dashboard#fitmentcenter_stock"
 
   match "/fitmentcenter" => "fitment_center_dashboard#index"
@@ -8,8 +11,12 @@ Dotdna::Application.routes.draw do
 
   resources :insurance_brokers
 
-
   match "/insurer_dashboard" => "dashboard#insurer_dashboard"
+
+  match "/app/dashboard" => "app#dashboard"
+  match "/app/verification" => "app#verification"
+  match "/app_login" => "app#login"
+  match "/app" => "app#login"
 
   resources :fitment_center_stocks
 

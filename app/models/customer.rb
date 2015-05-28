@@ -7,6 +7,7 @@ class Customer < ActiveRecord::Base
   validates_uniqueness_of :idnumber, :cell_number, :guarantee_number
 
   has_many :customer_assets
+  has_one :customer_verification
   belongs_to :fitment_center
   belongs_to :insurance_broker
 
