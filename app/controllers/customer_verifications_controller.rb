@@ -25,13 +25,17 @@ class CustomerVerificationsController < ApplicationController
     @customer = Customer.find_by_cell_number(params[:customer_verification][:cell_number])rescue nil
     if @customer.nil? == false
       nexmo = Nexmo::Client.new(key: '8cfe5832', secret: 'f004980a')
-      nexmo.send_message(to: "#{@customer.cell_number}", from: 'DotDna', text: "DotDna App Verification Code: #{}")
-      @customer_verification.verification_code =
+      @code = Time.now.to_i
+      nexmo.send_message(to: "#{@customer.cell_number}", from: 'DotDna', text: "DotDna App Verification Code: #{@code}")
+      @customer_verification.verification_code = @code
+      @customer_verification.verification_date = Date.today
+      @customer_verification.verified = false
+      @customer_verification.customer_id = @customer.id
+      @customer_verification.save!
+      redirect_to "/app/login"
     else
-
+      redirect_to "/app/verification"
     end
-    @customer_verification.save
-    respond_with(@customer_verification)
   end
 
   def update
