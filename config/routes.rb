@@ -17,6 +17,9 @@ Dotdna::Application.routes.draw do
   match "/app/verification" => "app#verification"
   match "/app_login" => "app#login"
   match "/app" => "app#login"
+  match "/app/profile" => "app#profile"
+  match "/app/redflag" => "app#red_flag"
+  match "/app/crimealert" => "app#crime_alert"
 
   resources :fitment_center_stocks
 

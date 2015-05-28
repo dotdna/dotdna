@@ -7,20 +7,33 @@ class AppController < ApplicationController
   layout "app"
 
   def dashboard
-    redirect_to "/app/verification"
+    # redirect_to "/app/verification"
   end
 
   def verification
-    @customer_verification = CustomerVerification.new
+    # @customer_verification = CustomerVerification.new
   end
 
   def login
-    @customer = CustomerVerification.find_by_customer_id(params[:customer_id]) rescue nil
-    if @customer.nil? == false
-      redirect_to "/app/dashboard"
-    else
-      redirect_to "/app/verification"
-    end
+    # @customer = CustomerVerification.find_by_customer_id(params[:customer_id]) rescue nil
+    # if @customer.nil? == false
+    #   redirect_to "/app/dashboard"
+    # else
+    #   redirect_to "/app/verification"
+    # end
+  end
+
+  def profile
+
+
+  end
+
+  def redflag
+
+  end
+
+  def crime_alert
+
   end
 
 end
