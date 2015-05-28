@@ -77,7 +77,7 @@ class CustomersController < ApplicationController
       if @customer.save
 
         nexmo = Nexmo::Client.new(key: '8cfe5832', secret: 'f004980a')
-        nexmo.send_message(to: "#{@customer.cell_number}", from: 'DotDna', text: "Welcome to DotDna, Your fitment is now complete. Please note your customer number #{@customer.id}. To Download the app please visit http://www.dotdna.co.za/dotdna.apk")
+        nexmo.send_message(to: "#{@customer.cell_number}", from: 'DotDna', text: "Welcome to DotDna, Your fitment is now complete. Please note your customer number #{@customer.id}. To Download the app please visit http://www.dotdna.co.za/DotDna-1.100.apk")
 
         @installed_stock = FitmentCenterStock.find(@customer.customer_assets.first.fitment_center_stock_id) rescue nil
 
