@@ -9,32 +9,32 @@
     %br
       %h4.text-success My Assets - 1 of 1
     %table.table.table-bordered.table-stripped
-      %tr
-        %td
-          Make
-        %td
-          BMW
-      %tr
-        %td
-          VIN Number
-        %td
-          8897783
-      %tr
-        %td
-          Microdot Number
-        %td
-          0192823874934
-      %tr
-        %td
-          Vehicle Registration
-        %td
-          GP123AS
-      %tr
-        %td
-          Registration Date
-        %td
-          28-05-2015
-      %tr
+      -@customer_assets.customer_asset.each do |x|
+        %tr
+          %td
+            Make
+          %td
+            =x.make
+        %tr
+          %td
+            VIN Number
+          %td
+            =x.vinnumber
+        %tr
+          %td
+            Microdot Number
+          %td
+            =x.microdot_number
+        %tr
+          %td
+            Vehicle Registration
+          %td
+            =x.registration_number
+        %tr
+          %td
+            Registration Date
+          %td
+            =x.created_at
         %td
           Red Flag
         %td
