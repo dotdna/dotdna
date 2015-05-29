@@ -1,9 +1,5 @@
 %br
 .row
-  %center
-    %img{:src => "#{asset_path("logo.png")}", :style => "width: 200px;"}
-%br
-.row
   %h4.text-success Crime News #{Date.today.strftime("%Y-%m-%d")} (Source News24)
   %br
   %h5.text-info
@@ -18,8 +14,5 @@
     %a{:href => "#"} Confession links man to N3 cop killing
   One of the men allegedly involved in a shoot-out that left two police officers dead and one injured, has been linked to the crime through his co-accused's confession, a Johannesburg court has heard.
   %hr
-  %a.btn.btn-block{:href => "#"} Load More...
+  %a.btn.btn-primary.btn-block.btn-large{:href => "/app/dashboard"} Back
 %br
-.row
-  %center
-    %img{:src => "#{asset_path("veridot.png")}", :style => "width: 80px;"}

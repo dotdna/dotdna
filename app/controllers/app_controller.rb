@@ -7,7 +7,12 @@ class AppController < ApplicationController
   layout "app"
 
   def dashboard
-    # redirect_to "/app/verification"
+    @customer = Customer.find(session[:customer_id]) rescue nil
+    if @customer == nil
+
+      redirect_to "/app"
+
+    end
   end
 
   def validate
@@ -30,30 +35,42 @@ class AppController < ApplicationController
     end
   end
 
+  def check_login
+    @customer = CustomerVerification.find_by_customer_id_and_verified(params[:customer_id], 1) rescue nil
+    if @customer != nil
+      session[:customer_id] = @customer.id
+      redirect_to "/app/dashboard"
+    else
+      flash[:error] = "Please verify your account first"
+      redirect_to "/app/verification"
+    end
+  end
+
   def verification
     @customer_verification = CustomerVerification.new
   end
 
   def login
-    @customer = CustomerVerification.find_by_customer_id(params[:customer_id]) rescue nil
-    if @customer != nil
-      session[:customer_id] = @customer.id
-      redirect_to "/app/dashboard"
-    else
-      redirect_to "/app/verification"
-    end
+
+
+
   end
 
   def profile
     @customer = Customer.find(session[:customer_id])
   end
 
-  def redflag
+  def red_flag
     @customer_assets = CustomerAsset.find_all_by_customer_id(session[:customer_id])
   end
 
   def crime_alert
 
+  end
+
+  def logout
+    session[:customer_id] = nil
+    reset_session
   end
 
 end

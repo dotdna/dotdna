@@ -1,15 +1,11 @@
 %br
 .row
   %center
-    %img{:src => "#{asset_path("logo.png")}", :style => "width: 200px;"}
-%br
-.row
-  %center
     %h4.text-info Red Flag Asset
     %br
-      %h4.text-success My Assets - 1 of 1
+      %h4.text-success My Assets (#{@customer_assets.count})
     %table.table.table-bordered.table-stripped
-      -@customer_assets.customer_asset.each do |x|
+      -@customer_assets.each do |x|
         %tr
           %td
             Make
@@ -41,5 +37,5 @@
           =form_tag "#" do
             = submit_tag "Red Flag Asset", :class => "btn btn-danger btn-block"
 .row
-  %center
-    %img{:src => "#{asset_path("veridot.png")}", :style => "width: 80px;"}
+  %a.btn.btn-primary.btn-block.btn-large{:href => "/app/dashboard"} Back
+  %hr

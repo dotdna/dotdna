@@ -1,8 +1,3 @@
-%br
-.row
-  %center
-    %img{:src => "#{asset_path("logo.png")}", :style => "width: 200px;"}
-
 .row
   %h4.text-success My Details
   %table.table.table-bordered.table-stripped
@@ -15,7 +10,7 @@
       %td
         Customer Number
       %td
-        =@customer.customer_id
+        =@customer.id
     %tr
       %td
         Guarantee Number
@@ -28,7 +23,7 @@
         =@customer.idnumber
   %h4.text-success My Assets
   %table.table.table-bordered.table-stripped
-    -@customer.customer_asset.each do |x|
+    -@customer.customer_assets.each do |x|
       %tr
         %td
           Make
@@ -54,12 +49,9 @@
           Registration Date
         %td
           =x.created_at
+%hr
 .row
-  %hr
   %center
-    %a.btn.btn-primary.btn-block.btn-large{:href => "#"} Edit
+    %a.btn.btn-success.btn-block.btn-large{:href => "#"} Edit
+    %a.btn.btn-primary.btn-block.btn-large{:href => "/app/dashboard"} Back
   %br
-
-.row
-  %center
-    %img{:src => "#{asset_path("veridot.png")}", :style => "width: 80px;"}

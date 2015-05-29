@@ -17,4 +17,13 @@
     .container-fluid
       .row-fluid
         = bootstrap_flash
+        %br
+        .row
+          %center
+            %img{:src => "#{asset_path("logo.png")}", :style => "width: 200px;"}
         = yield
+    .container-fluid
+      .row-fluid
+        %center
+          %img{:src => "#{asset_path("veridot.png")}", :style => "width: 80px;"}
+

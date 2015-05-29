@@ -28,7 +28,7 @@ class CustomerVerificationsController < ApplicationController
     @customer = Customer.find_by_cell_number(params[:customer_verification][:cell_number])rescue nil
 
     if @customer != nil
-      if @customer.customer_verification.exists? == false
+      if @customer.customer_verification == nil
         nexmo = Nexmo::Client.new(key: '8cfe5832', secret: 'f004980a')
         @code = Time.now.to_i
         nexmo.send_message(to: "#{@customer.cell_number}", from: 'DotDna', text: "DotDna App Verification Code: #{@code}")
@@ -40,7 +40,7 @@ class CustomerVerificationsController < ApplicationController
         redirect_to "/app/validate"
       else
         flash[:warning] = "Customer has already been verified"
-        redirect_to "/app/login"
+        redirect_to "/app"
       end
     else
       flash[:warning] = "Cell Phone Number Doesn't Exist"

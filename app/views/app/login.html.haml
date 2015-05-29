@@ -1,16 +1,17 @@
 %br
 .row
   %center
-    %img{:src => "#{asset_path("logo.png")}", :style => "width: 200px;"}
-%br
-.row
-  %center
     %h4.text-info Login
     %br
-    =form_tag "/app_login" do
-      = label_tag(:customer_id, "Customer Number")
-      = text_field_tag(:customer_id)
-      = submit_tag "Login", :class => "btn btn-success"
-.row
-  %center
-    %img{:src => "#{asset_path("veridot.png")}", :style => "width: 80px;"}
+    =form_tag "/check_login" do
+      %table
+        %tr
+          %td
+            = label_tag(:customer_id, "Customer Number")
+            = text_field_tag(:customer_id)
+        %tr
+          %td
+            = submit_tag "Login", :class => "btn btn-success btn-block"
+        %tr
+          %td
+            %a.btn.btn-primary.btn-block{:href => "/app"} Verify Customer
