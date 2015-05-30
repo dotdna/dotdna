@@ -72,6 +72,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(params[:customer])
     @customer.fitment_centre_id = current_fitment_center_user.fitment_center_id
     @customer.guarantee_number = Time.now.to_i
+    @customer.customer_assets.red_flag = false
 
     respond_to do |format|
       if @customer.save
