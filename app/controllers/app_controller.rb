@@ -84,6 +84,10 @@ class AppController < ApplicationController
 
   end
 
+  def contactus
+
+  end
+
   def logout
     session[:customer_id] = nil
     reset_session

@@ -24,6 +24,7 @@ Dotdna::Application.routes.draw do
   match "/validation_check" => "app#validation_check"
   match "/app/logout" => "app#logout"
   match "/action_redflag" => "app#action_redflag"
+  match "/app/contactus" => "app#contactus"
 
   resources :fitment_center_stocks
 

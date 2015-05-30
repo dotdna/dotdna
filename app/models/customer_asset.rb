@@ -8,5 +8,12 @@ class CustomerAsset < ActiveRecord::Base
 
   belongs_to :customer
 
+  before_create :redflag
+
+  def redflag
+    self.red_flag = false
+    return true
+  end
+
 
 end
