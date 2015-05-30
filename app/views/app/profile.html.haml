@@ -21,6 +21,11 @@
         ID Number
       %td
         =@customer.idnumber
+    %tr
+      %td
+        Policy Renewal Date
+      %td
+        =@customer.policy_renewal_date.strftime("%Y-%d-%m")
   %h4.text-success My Assets
   %table.table.table-bordered.table-stripped
     -@customer.customer_assets.each do |x|

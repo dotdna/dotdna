@@ -1,3 +1,4 @@
+require 'rss'
 class AppController < ApplicationController
 
   skip_before_filter :authenticate_fitment_center_user!

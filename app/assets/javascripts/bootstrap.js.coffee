@@ -13,3 +13,5 @@ jQuery ->
     $(this).closest('fieldset').hide()
     event.preventDefault()
 
+  $('#customer_policy_renewal_date').datepicker()
+

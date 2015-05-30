@@ -19,6 +19,7 @@
       = f.input :email
       = f.input :idnumber, :label => "ID Number"
       = f.input :insurance_broker_id, :as => :select, :collection => InsuranceBroker.all, :prompt => "Select Insurance Broker"
+      = f.input :policy_renewal_date, :as => :string
   %hr
   .well
     %h4.text-info Customer Asset
