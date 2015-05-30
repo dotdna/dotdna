@@ -64,6 +64,10 @@ class AppController < ApplicationController
       @find_asset.red_flag_lat = 0.0
       @find_asset.red_flag_long = 0.0
       @find_asset.save!
+
+      nexmo = Nexmo::Client.new(key: '8cfe5832', secret: 'f004980a')
+      nexmo.send_message(to: "#{@customer.cell_number}", from: 'DotDnaAlert', text: "New RedFlag triggered for asset #{@find_asset.registration_number} customer number #{@find_asset.customer_id}")
+
       redirect_to "/app/dashboard"
     end
   end
