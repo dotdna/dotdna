@@ -56,6 +56,18 @@ class AppController < ApplicationController
 
   end
 
+  def action_redflag
+    @find_asset = CustomerAsset.find_by_id(params[:asset_id]) rescue nil
+    if @find_asset != nil
+      @find_asset.red_flag = true
+      @find_asset.red_flag_confirmed = false
+      @find_asset.red_flag_lat = 0.0
+      @find_asset.red_flag_long = 0.0
+      @find_asset.save!
+      redirect_to "/app/dashboard"
+    end
+  end
+
   def profile
     @customer = Customer.find(session[:customer_id])
   end

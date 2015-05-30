@@ -1,0 +1,29 @@
+-#%br
+-#.row
+-#  %center
+-#    %h4.text-info Edit My Details
+-#    %br
+-#    =form_tag "/update_profile" do
+-#      %table
+-#        %tr
+-#          %td
+-#            = label_tag(:title, "Title")
+-#          %td
+-#            = text_field_tag(:title)
+-#        %tr
+-#          %td
+-#            = label_tag(:first_name, "First Name")
+-#          %td
+-#            = text_field_tag(:first_name)
+-#        %tr
+-#          %td
+-#            = label_tag(:middle_name, "Middle Name")
+-#          %td
+-#            = text_field_tag(:middle_name
+-#        %tr
+-#          %td
+-#            = submit_tag "Login", :class => "btn btn-success btn-block"
+-#        %tr
+-#          %td
+-#            %a.btn.btn-primary.btn-block{:href => "/app/validate"} Enter Verification Code
+-#            %a.btn.btn-primary.btn-block{:href => "/app/verification"} Get Verified

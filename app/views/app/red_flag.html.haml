@@ -34,8 +34,8 @@
         %td
           Red Flag
         %td
-          =form_tag "#" do
-            = submit_tag "Red Flag Asset", :class => "btn btn-danger btn-block"
-.row
-  %a.btn.btn-primary.btn-block.btn-large{:href => "/app/dashboard"} Back
-  %hr
+          -if x.red_flag == false
+            =form_tag "/action_redflag?asset_id=#{x.id}" do
+              = submit_tag "Red Flag Asset", :class => "btn btn-danger btn-block"
+          -else
+            Already RedFlagged
