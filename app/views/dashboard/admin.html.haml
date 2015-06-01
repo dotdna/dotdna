@@ -73,7 +73,7 @@
       %th
         Policy Renewal Date
   %tbody
-    -Customer.where(:conditions => "policy_renewal_date BETWEEN '#{Time.now.strftime("%Y-%m-%d")} 00:00:00' AND '#{Time.now.strftime("%Y")}-#{Time.now.strftime("%m").to_i-1}-01 00:00:00'").each do |x|
+    -Customer.where("policy_renewal_date BETWEEN '#{Time.now.strftime("%Y-%m-%d")} 00:00:00' AND '#{Time.now.strftime("%Y")}-#{Time.now.strftime("%m").to_i-1}-01 00:00:00'").each do |x|
       %tr
         %td
           =x.id

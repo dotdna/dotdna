@@ -87,6 +87,8 @@ class AppController < ApplicationController
 
   def contactus
 
+    @customer_feedback = CustomerFeedback.new
+
   end
 
   def logout

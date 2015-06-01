@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150530133644) do
+ActiveRecord::Schema.define(:version => 20150601095442) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(:version => 20150530133644) do
   end
 
   add_index "customer_assets", ["customer_id"], :name => "index_customer_assets_on_customer_id"
+
+  create_table "customer_feedbacks", :force => true do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "customer_id"
+    t.boolean  "viewed"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "customer_verifications", :force => true do |t|
     t.string   "cell_number"
