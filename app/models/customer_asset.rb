@@ -7,6 +7,8 @@ class CustomerAsset < ActiveRecord::Base
   validates_presence_of :make, :model, :vehicle_type, :vinnumber, :microdot_number
 
   belongs_to :customer
+  belongs_to :fitment_center
+  belongs_to :fitment_center_stock
 
   before_create :redflag
 

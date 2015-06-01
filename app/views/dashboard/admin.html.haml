@@ -56,5 +56,35 @@
           =x[1]
         %td
           =link_to "View Detailed Report", '#', :class => 'btn'
+%br
+%h4.text-info Upcoming Policy Renewals
+%hr
+%table.table.table-condensed.table-bordered.table-stripped
+  %thead
+    %tr
+      %th
+        Customer Number
+      %th
+        Customer Name
+      %th
+        Fitment Center
+      %th
+        Fitment Date
+      %th
+        Policy Renewal Date
+  %tbody
+    -Customer.where(:conditions => "policy_renewal_date BETWEEN '#{Time.now.strftime("%Y-%m-%d")} 00:00:00' AND '#{Time.now.strftime("%Y")}-#{Time.now.strftime("%m").to_i-1}-01 00:00:00'").each do |x|
+      %tr
+        %td
+          =x.id
+        %td
+          =(x.first_name.to_s + x.last_name.to_s) rescue nil
+        %td
+          =x.customer_assets.first.fitment_center.company_name rescue nil
+        %td
+          =x.customer_assets.first.created_at.strftime("%d-%m-%Y") rescue nil
+        %td
+          =x.policy_renewal_date.strftime("%d-%m-%Y") rescue nil
+
 
 

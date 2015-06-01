@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Subject:
+  = @customer_feedback.subject
+%p
+  %b Body:
+  = @customer_feedback.body
+%p
+  %b Customer:
+  = @customer_feedback.customer_id
+%p
+  %b Viewed:
+  = @customer_feedback.viewed
+
+= link_to 'Edit', edit_customer_feedback_path(@customer_feedback)
+\|
+= link_to 'Back', customer_feedbacks_path

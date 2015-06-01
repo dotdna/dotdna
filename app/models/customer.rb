@@ -11,6 +11,8 @@ class Customer < ActiveRecord::Base
   belongs_to :fitment_center
   belongs_to :insurance_broker
 
+  has_many :customer_feedbacks
+
   accepts_nested_attributes_for :customer_assets, allow_destroy: true, :reject_if => :all_blank
 
 end

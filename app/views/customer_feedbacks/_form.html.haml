@@ -1,0 +1,11 @@
+= simple_form_for(@customer_feedback) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :subject
+    = f.input :body
+    = f.input :customer_id
+    = f.input :viewed
+
+  .form-actions
+    = f.button :submit

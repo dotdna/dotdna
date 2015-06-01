@@ -1,5 +1,8 @@
 Dotdna::Application.routes.draw do
 
+  resources :customer_feedbacks
+
+
   resources :customer_verifications
 
 

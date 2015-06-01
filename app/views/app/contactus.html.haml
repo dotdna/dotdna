@@ -3,5 +3,15 @@
   %center
     %h4.text-info Contact Us
     %hr
-    %a.btn.btn-block.btn-success{:href => "mailto:admin@dotdna.co.za"} E-mail us Support / Contact Center
+  = simple_form_for(@customer_feedback) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :subject
+      = f.input :body, :as => :text, :input_html => {:cols => 3, :rows => 3}
+      = f.hidden_field :customer_id, :value => session[:customer_id]
+      = f.hidden_field :viewed
+
+    .form-actions
+      = f.button :submit
 %br
