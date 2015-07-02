@@ -13,7 +13,7 @@ load "config/recipes/nodejs"
 #load "config/recipes/rbenv"
 load "config/recipes/check"
 
-server "178.62.93.199", :web, :app, :db, primary: true
+server "portal.dotdna.co.za", :web, :app, :db, primary: true
 
 set :user, "deployer"
 set :application, "dotdna"
